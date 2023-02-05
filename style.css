@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Feixen-Edgy;
+    src: url("font/Studio\ Feixen\ Sans\ Edgy\ Variable\ Trail.ttf");
+    font-weight: 300 900;
+}
+
+body {
+    background-color: black;
+    font-family: Feixen-Edgy;
+    font-size: 100px;
+    color: blue;
+} 
+
+span {
+    display: inline-flex;
+    border: 1px solid blue;
+    border-radius: 25% 0px;
+    border-radius: 20%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#add-button {
+    cursor: pointer;
+}
+
+.move {
+    fill: none;
+    position: absolute;
+    /* transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); */
+}
+/* 
+.move:hover {
+    transform: translate(var(--xTranslate), var(--yTranslate));
+} */
+
