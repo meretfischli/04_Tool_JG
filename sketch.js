@@ -3,11 +3,24 @@ let r = Math.random
 
 function setup(){
 	createCanvas(windowWidth, windowHeight)
-	noLoop()
+	createMultiple()
+
+	// create sliders
+  	rSlider = createSlider(0, 255, 100);
+  	rSlider.position(20, 20);
+  	gSlider = createSlider(0, 255, 0);
+  	gSlider.position(20, 50);
+  	bSlider = createSlider(0, 255, 255);
+  	bSlider.position(20, 80);
 }
 
 function draw(){
-	createMultiple()
+	const r = rSlider.value();
+  	const g = gSlider.value();
+ 	const b = bSlider.value();
+ 	// background(r, g, b);
+
+	
 }
 
 function createMultiple(){
@@ -25,15 +38,12 @@ function addSpan(){
 	document.querySelector('.move').appendChild(mySpan)
 
 	const words = document.querySelectorAll('.words')
+	const top = random() * 300
+	const left = random() * 300
 
-	for(const word of words) {
-		const top = random() * 300
-		const left = random() * 300
-		// const yT = r() * 300
-		// const xT = r() * 300
-		console.log(top, left)
+	ellipse(top, left, 100, 100)
+	console.log(top, left)
 
-		// words.setAttribute("style", `--xTranslate: ${xT}px; --yTranslate: ${yT}px; left: ${left}px; top: ${top}px`)
-		word.setAttribute("style", `left: ${left}px; top: ${top}px`)
-	}
+	mySpan.setAttribute("style", `left: ${left}px; top: ${top}px`)
+	console.log(top, left)
 }
