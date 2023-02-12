@@ -136,7 +136,15 @@ class Bubble {
         vertex(this.x + 50, this.y + 100);
         vertex(this.x + this.w, this.y); 
 
+        // vertex(this.x+random(145), this.y+random(245));
+        // vertex(this.x+random(50), this.y+random(105));
+        // vertex(this.x+random(25), this.y+random(235));
+        // vertex(this.x+random(115), this.y+random(120));
+        // vertex(this.x+random(250), this.y+random(125));
+        // vertex(this.x+random(200), this.y+random(150));
+
         endShape();
+
         pop()
     }
 
