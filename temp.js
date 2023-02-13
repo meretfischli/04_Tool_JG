@@ -37,6 +37,15 @@ var fxrand = sfc32(...hashes);
 
 const r = fxrand
 
+const colors = [
+    ["#39FF14", "#F9FBE7", "#F1C40F", "#E67E22"],
+    ["#16A085", "#2980B9", "#8E44AD", "#2C3E50"],
+    ["#7F8C8D", "#F39C12", "#00FF00", "#FF00FF"],
+    ["#fff", "#5730F9", "#203", "#FF1C4C"],
+  ];
+  
+  const pick = (d) => d[Math.floor(r() * d.length)];
+
 
 class Span {
     constructor() {
@@ -49,7 +58,7 @@ class Span {
         this.updateSpan(mySpan)
       
         this.html = mySpan
-        this.text = "bla"
+        this.text = "Typehere"
 
         mySpan.innerHTML = this.text
 
@@ -81,6 +90,26 @@ class Span {
     updateSpan(mySpan) {
         this.w = mySpan.offsetWidth
         this.h = mySpan.offsetHeight
+
+        
+        
+        this.numLines = 1
+        this.lines = []
+        for (let i = 0; i < this.numLines; i += 1) {
+            
+            this.lines.push(new Line(this.x, this.y, this.w, this.h))
+            this.x += 50
+            this.y += 10
+            this.w += 10
+            this.h += 10
+
+        }
+
+        
+        for (let line of this.lines) {
+            // translate(this.w, this.h)
+            line.show()
+        }
     }
 
     addBubbles() {
@@ -112,6 +141,11 @@ class Span {
             rect.show()
         }
         pop()
+    }
+
+    addLines(){
+        
+        
     }
     
 
@@ -181,6 +215,30 @@ class Bubble {
 
         endShape();
 
+        pop()
+    }
+
+}
+
+class Line {
+    constructor(left, top, width, height) {
+        this.x = left
+		this.y = top
+		this.w = width
+		this.h = height
+    }
+
+    show() {
+        
+        stroke(pick(pick(colors)))
+        // circle(this.x, this.y, this.w, this.h)
+
+        noFill()
+        strokeWeight(100)
+        push()
+        translate(this.w/2, this.h/2)
+        line(this.x*r(), this.y*r(), this.x*r(), this.y*r())
+        console.log(this.w, this.h, this.x, this.y)
         pop()
     }
 
