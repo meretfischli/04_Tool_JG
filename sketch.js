@@ -3,10 +3,13 @@
 
 let spans = []
 let newX, newY, newW, newH
+let fr = 60
 
 
 function setup(){
 	createCanvas(windowWidth, windowHeight)
+
+	frameRate(fr)
 	
 
 	for(let i = 0; i < 4; i++){
